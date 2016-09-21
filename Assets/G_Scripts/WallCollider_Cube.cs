@@ -20,8 +20,8 @@ public class WallCollider_Cube : MonoBehaviour
     {
         if (other.tag == "bullet")
         {
-            Destroy(other.gameObject);
-            Debug.Log("被子彈打到");
+            Destroy(other.gameObject);//移除子彈
+            Debug.Log("被子彈打到 : "+gameObject.name);
         }
     }
 }

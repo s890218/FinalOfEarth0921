@@ -16,5 +16,6 @@ public class FireManager : MonoBehaviour {
         {
             Instantiate(m_CloneBullet,gameObject.transform.position,Quaternion.identity);
         }
+
 	}
 }
