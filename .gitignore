@@ -48,5 +48,6 @@ Temporary Items
 FinalEarth.CSharp.csproj
 *.sln
 Library/*
+Temp/*
 .vs/FinalOfEarth/v14/.suo
 FinalOfEarth.CSharp.csproj
