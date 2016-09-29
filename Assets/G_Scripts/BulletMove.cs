@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BulletMove : MonoBehaviour {
 
+    public float m_Speed = 0;
+
 	// Use this for initialization
 	void Start () {
 	
