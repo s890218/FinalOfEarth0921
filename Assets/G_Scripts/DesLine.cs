@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WallCollider_Cube : MonoBehaviour
+public class DesLine : MonoBehaviour
 {
 
     // Use this for initialization
@@ -18,14 +18,9 @@ public class WallCollider_Cube : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bullet")
+        if (other != null)
         {
-            Destroy(other.gameObject);//移除子彈
-            Debug.Log("被子彈打到 : " + gameObject.name);
-        }
-        else if (other.tag == "Player")
-        {
-
+            Destroy(other.gameObject);
         }
     }
 }

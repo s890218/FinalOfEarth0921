@@ -39,13 +39,24 @@ public class PlayerManager : MonoBehaviour {
 
     private void SetMove()
     {
-        if (m_isLeft)
+        float now_Speed = 1.5f * m_Speed * Time.deltaTime * TStaticV.m_TotalSpeed;
+        if (m_isLeft&&transform.position.x>-2.1f)
         {
-            gameObject.transform.position += new Vector3(-0.5f * m_Speed*Time.deltaTime, 0, 0);
+            gameObject.transform.position += new Vector3(-now_Speed, 0, 0);
         }
-        if(m_isRight)
+        if(m_isRight && transform.position.x < 2.1f)
         {
-            gameObject.transform.position += new Vector3(0.5f * m_Speed * Time.deltaTime, 0, 0);
+            gameObject.transform.position += new Vector3(now_Speed, 0, 0);
         }
+    }
+
+    public float GetSpeed()
+    {
+        return m_Speed;
+    }
+
+    public void SetSpeed(float _speed)
+    {
+        m_Speed = _speed;
     }
 }
