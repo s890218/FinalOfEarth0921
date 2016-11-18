@@ -16,8 +16,8 @@ public class cabinetcontroller : MonoBehaviour {
     
     void Start ()
     {
-        //_achi();
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        _achi();
+        transform.position = new Vector3(0, 0, 0);
     }
 	
 	// Update is called once per frame

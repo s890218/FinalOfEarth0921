@@ -20,7 +20,7 @@ public class achievementDB : MonoBehaviour {
         a00.name = "111";
         a00.type = achievement.Type.type_a;
         a00.sprite = sprites[0];
-        //allachievement.Add(a00);
+        allachievement.Add(a00);
 
         achievement a01 = gameObject.AddComponent<achievement>();
         a01.name = "222";
