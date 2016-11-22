@@ -22,6 +22,7 @@ public class PlayerCollider : MonoBehaviour
         {
             return;
         }
-        Debug.Log("YOU LOSE");
+        //Debug.Log("YOU LOSE");
+        PlayerManager._instance.SetGameOver();
     }
 }

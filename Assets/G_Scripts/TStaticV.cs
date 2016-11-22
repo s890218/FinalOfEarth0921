@@ -9,8 +9,10 @@ public class TStaticV : MonoBehaviour
     public static int m_NowIndex = 0;   //目前第幾個關卡
     public static int m_NowRockRank = 5;    //目前出石頭的機率
 
-    public static float m_KillScore = 0;
-
+    public static float m_KillScore = 0;//擊殺分數
+    public static int m_KillCount = 0;//擊殺數量
+    public static float m_RealScore = 0;//實際分數
+    public static float m_LifeTime = 0;//開始時間  用來跟現在時間相減 就會是存活時間
     public void Awake()
     {
         //初始化
@@ -18,5 +20,6 @@ public class TStaticV : MonoBehaviour
         m_NowIndex = 0;
         m_NowRockRank = 5;
         m_KillScore = 0;
+        m_LifeTime = Time.time;
     }
 }
