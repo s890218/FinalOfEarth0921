@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletMove : MonoBehaviour {
-
-    public float m_Speed = 0;
+public class CreateRock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +10,6 @@ public class BulletMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.Translate(0, 5f * Time.deltaTime* TStaticV.m_TotalSpeed, 0);
+	
 	}
 }

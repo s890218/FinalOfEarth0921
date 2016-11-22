@@ -14,7 +14,7 @@ public class FireManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(m_CloneBullet,gameObject.transform.position,Quaternion.identity);
+            Instantiate(m_CloneBullet,gameObject.transform.position, m_CloneBullet.transform.rotation);
         }
 
 	}

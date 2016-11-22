@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
-	// Use this for initialization
+    public Text m_ScoreText = null; 
+
 	void Start () {
 	
 	}
@@ -16,6 +18,7 @@ public class TimeManager : MonoBehaviour {
         }
 
         TStaticV.m_TotalSpeed += Time.deltaTime * 0.01f;
-
+        float score = TStaticV.m_TotalSpeed * 10 + TStaticV.m_KillScore + TStaticV.m_NowIndex;
+        m_ScoreText.text = score.ToString("0.0");
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DesLine : MonoBehaviour
 {
-
+    public bool m_isBack = false;
     // Use this for initialization
     void Start()
     {
@@ -18,9 +18,19 @@ public class DesLine : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other != null)
+        if (m_isBack == true)
         {
-            Destroy(other.gameObject);
+            if (other != null)
+            {
+                Destroy(other.gameObject);
+            }
+        }
+        else
+        {
+            if (other != null&& other.tag=="bullet")
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }
