@@ -17,9 +17,9 @@ public class cabinetcontroller : MonoBehaviour {
     void Start ()
     {
         _achi();
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(50, 100, 0);
     }
-	
+    
 	// Update is called once per frame
 	void Update ()
     {
@@ -41,9 +41,9 @@ public class cabinetcontroller : MonoBehaviour {
                 GameObject slot = Instantiate(slotPrefab) as GameObject;
                 slot.transform.SetParent(this.transform);
                 slot.name = "Slot_" + x + "_" + y;
-                slot.GetComponent<RectTransform>().anchoredPosition = new Vector3(windowSize.x / (invetorySize.x + 1) * x, windowSize.y / (invetorySize.y + 1) * -y, 0);
+                slot.GetComponent<RectTransform>().anchoredPosition = new Vector3(100 * (x - 1) + 50, 50 * -y, 0);
 
-                if ((x + (y - 1) * 18) <= achievementDB.achievementlist.Count)
+                if ((x + (y - 1) * 4) <= achievementDB.achievementlist.Count)
                 {
                     GameObject item = Instantiate(itemPrefab) as GameObject;
                     item.transform.SetParent(slot.transform);

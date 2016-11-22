@@ -4,6 +4,8 @@ using System.Collections;
 
 public class achitext : MonoBehaviour {
 
+    public Transform tt;
+    
 	// Use this for initialization
 	void Start ()
     {
@@ -19,6 +21,6 @@ public class achitext : MonoBehaviour {
     public void reflesh()
     {
         GetComponent<Text>().text.Replace("\\n", "\n");
-        GetComponent<Text>().text = ("Name：" + transform.parent.parent.GetComponent<text>().title + "\n" + transform.parent.parent.GetComponent<text>().detail);
+        GetComponent<Text>().text = ("Name：" + tt.GetComponent<text>().title + "\n" + tt.GetComponent<text>().detail);
     }
 }

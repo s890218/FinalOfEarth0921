@@ -65,10 +65,18 @@
   <ItemGroup>
     <Compile Include="Assets\G_Scripts\BulletMove.cs" />
     <Compile Include="Assets\G_Scripts\CreateManager.cs" />
+    <Compile Include="Assets\G_Scripts\DesLine.cs" />
     <Compile Include="Assets\G_Scripts\FireManager.cs" />
     <Compile Include="Assets\G_Scripts\GameManager.cs" />
+    <Compile Include="Assets\G_Scripts\PlaneManager.cs" />
+    <Compile Include="Assets\G_Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\G_Scripts\RockManager.cs" />
+    <Compile Include="Assets\G_Scripts\TimeManager.cs" />
+    <Compile Include="Assets\G_Scripts\TotalStaticValue.cs" />
     <Compile Include="Assets\G_Scripts\WallCollider_Cube.cs" />
+    <Compile Include="Assets\G_Scripts\achisprte.cs" />
     <Compile Include="Assets\G_Scripts\guicontroller.cs" />
+    <Compile Include="Assets\G_Scripts\loadtext.cs" />
     <Compile Include="Assets\G_Scripts\titlenum.cs" />
     <Compile Include="Assets\achi_test\achievement.cs" />
     <Compile Include="Assets\achi_test\achievementDB.cs" />
