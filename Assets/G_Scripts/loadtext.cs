@@ -1,40 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class loadtext : MonoBehaviour
 {
 
-    private float letterPause = 0.1f;
-    
-    [SerializeField]
-    private AudioClip typeSound;
-    [SerializeField]
-    private Text txtDisplay;
-    private string words;
-    private string text = "Welcome to summerRift!!\naaaaaaaaaaaaaaaaaaaaaaaaaa";
-
-
-    public IEnumerator display(string displayStr)
-    {
-        words = displayStr;
-        text = "";
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(TypeText());
-    }
+    public Text textload;   
 
     void Start()
     {
-        StartCoroutine(display(text));
+        StartCoroutine(LoadingGame());      
     }
-    
-    private IEnumerator TypeText()
-    {
-        foreach (var word in words)
-        {
-            txtDisplay.text += word;
-            yield return new WaitForSeconds(letterPause);
-        }
 
+    IEnumerator LoadingGame()
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync("MainScene");      
+        async.allowSceneActivation = false;                                   
+        while (!async.isDone)                                                 
+        {
+            if (async.progress >= 0.9f)                                       
+            {
+                textload.text = "Loading 100%\nPRESS TO CONTINUE";                    
+                if (Input.anyKey)                                             
+                    async.allowSceneActivation = true;                        
+            }                                                                         
+            else
+                textload.text = "Loading " + async.progress / 0.9f * 100 + "%";   
+            yield return null;
+        }
     }
 }

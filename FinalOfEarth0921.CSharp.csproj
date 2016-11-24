@@ -74,8 +74,9 @@
     <Compile Include="Assets\G_Scripts\PlayerManager.cs" />
     <Compile Include="Assets\G_Scripts\RockMakePos.cs" />
     <Compile Include="Assets\G_Scripts\RockManager.cs" />
+    <Compile Include="Assets\G_Scripts\SaveDataManager.cs" />
+    <Compile Include="Assets\G_Scripts\TStaticV.cs" />
     <Compile Include="Assets\G_Scripts\TimeManager.cs" />
-    <Compile Include="Assets\G_Scripts\TotalStaticValue.cs" />
     <Compile Include="Assets\G_Scripts\WallCollider_Cube.cs" />
     <Compile Include="Assets\G_Scripts\WallMove.cs" />
     <Compile Include="Assets\G_Scripts\WallSelfManager.cs" />
