@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class loadtext : MonoBehaviour
 {
 
-    public Text textload;   
+    public Text textload;
+    public Animator textani;
 
     void Start()
     {
@@ -21,7 +22,8 @@ public class loadtext : MonoBehaviour
         {
             if (async.progress >= 0.9f)                                       
             {
-                textload.text = "Loading 100%\nPRESS TO CONTINUE";                    
+                textload.text = "Loading 100%\nPRESS TO CONTINUE";
+                textani.SetBool("finish", true);             
                 if (Input.anyKey)                                             
                     async.allowSceneActivation = true;                        
             }                                                                         
