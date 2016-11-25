@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class guicontroller : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class guicontroller : MonoBehaviour
     public void startgame()
     {
         mainmenuani.SetBool("mainmenu", true);
+        StartCoroutine(loadgame());
+    }
+    IEnumerator loadgame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Loading");
     }
 
     public void achimenu()
