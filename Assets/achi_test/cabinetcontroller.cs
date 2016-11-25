@@ -12,7 +12,6 @@ public class cabinetcontroller : MonoBehaviour {
     public Vector2 windowSize;
 
     public bool canDragItem = false;
-    // Use this for initialization
     
     void Start ()
     {
@@ -20,16 +19,13 @@ public class cabinetcontroller : MonoBehaviour {
         transform.position = new Vector3(50, 100, 0);
     }
     
-	// Update is called once per frame
 	void Update ()
     {
         
 	}
     
-    
     public void _achi()
-    { 
-        
+    {
         foreach (Transform t in this.transform)
         {
             Destroy(t.gameObject);
@@ -57,9 +53,7 @@ public class cabinetcontroller : MonoBehaviour {
                     item.name = a.name;
                     item.GetComponent<Image>().sprite = a.sprite;
                 }
-
             }
         }
-        
     }
 }

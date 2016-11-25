@@ -2,21 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class achitext : MonoBehaviour {
-
+public class achitext : MonoBehaviour
+{
     public Transform tt;
     
-	// Use this for initialization
 	void Start ()
     {
         reflesh();
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	    
-	}
 
     public void reflesh()
     {
