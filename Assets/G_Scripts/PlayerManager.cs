@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class PlayerManager : MonoBehaviour
     public Text m_LbKillCount_His = null;
     public Text m_LbTotalScore_His = null;
 
+    //private float[] m_TotalRankScore = null;
+    private List<float> m_TotalRankScore = null;
+    public GameObject m_RankObj = null;
+
     public void Awake()
     {
         _instance = this;
@@ -31,6 +36,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         m_GameOverUI.gameObject.SetActive(false);
+        GetRankScore();
     }
 
     // Update is called once per frame
@@ -128,7 +134,7 @@ public class PlayerManager : MonoBehaviour
         }
         m_LbTotalScore.text = ts.ToString("0.0");
         m_LbTotalScore_His.text = H_ts.ToString("0.0");
-
+        CheckRankScore(ts);
         Time.timeScale = 0;
         TStaticV.m_GameStart = false;
         m_GameOverUI.gameObject.SetActive(true);
@@ -140,4 +146,48 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void ShowRank()
+    {
+        RankManager._instance.SetRankInit(m_TotalRankScore);
+        m_RankObj.gameObject.SetActive(true);
+        m_GameOverUI.gameObject.SetActive(false);
+    }
+
+    public void HideRank()
+    {
+        m_RankObj.gameObject.SetActive(false);
+        m_GameOverUI.gameObject.SetActive(true);
+    }
+
+    private void GetRankScore()
+    {
+        m_TotalRankScore = SaveDataManager._inter.GetRankScoreArray();
+    }
+
+    private void CheckRankScore(float now_score)
+    {
+        for (int i = 0; i < m_TotalRankScore.Count; i++)
+        {
+            if (now_score > m_TotalRankScore[i])
+            {
+                //有新紀錄
+                
+                m_TotalRankScore.Insert(i, now_score);
+                ChangeRank();
+                return;
+            }
+        }
+    }
+
+    private void ChangeRank()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (i > m_TotalRankScore.Count)
+            {
+                return;
+            }
+            SaveDataManager._inter.SetRankScore(m_TotalRankScore[i], i);
+        }
+    }
 }
