@@ -26,6 +26,9 @@ public class PlayerManager : MonoBehaviour
     private List<float> m_TotalRankScore = null;
     public GameObject m_RankObj = null;
 
+    private bool isSpeedUp = false;
+    public Image m_SpeedUpImg = null;
+
     public void Awake()
     {
         _instance = this;
@@ -42,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKey(KeyCode.A))
         {
             m_isLeft = true;
@@ -58,7 +62,33 @@ public class PlayerManager : MonoBehaviour
         {
             m_isRight = false;
         }
-
+        if (Input.GetKeyDown(KeyCode.W)&&TStaticV.m_GameStart==true)
+        {
+            Time.timeScale = 1.7f;
+        }
+        if (Input.GetKeyUp(KeyCode.W) && TStaticV.m_GameStart == true)
+        {
+            Time.timeScale = 1f;
+        }
+#else
+        if (Input.acceleration.x > 0.15f)
+        {
+            SetMobMove(Input.acceleration.x);
+            m_isLeft = false;
+            m_isRight = true;
+        }
+        else if (Input.acceleration.x < -0.15f)
+        {
+            SetMobMove(Input.acceleration.x);
+            m_isLeft = true;
+            m_isRight = false;
+        }
+        else
+        {
+            m_isLeft = false;
+            m_isRight = false;
+        }
+#endif
 
         SetMove();
     }
@@ -69,6 +99,27 @@ public class PlayerManager : MonoBehaviour
         if (m_isLeft && transform.position.x > -2.1f)
         {
             gameObject.transform.position += new Vector3(-now_Speed, 0, 0);
+        }
+        if (m_isRight && transform.position.x < 2.1f)
+        {
+            gameObject.transform.position += new Vector3(now_Speed, 0, 0);
+        }
+    }
+
+    private void SetMobMove(float acc)
+    {
+        if (acc > 0.6f)
+        {
+            acc = 0.6f;
+        }
+        else if (acc < -0.6f)
+        {
+            acc = -0.6f;
+        }
+        float now_Speed = 2.5f * m_Speed * Time.deltaTime * TStaticV.m_TotalSpeed* acc;
+        if (m_isLeft && transform.position.x > -2.1f)
+        {
+            gameObject.transform.position += new Vector3(now_Speed, 0, 0);
         }
         if (m_isRight && transform.position.x < 2.1f)
         {
@@ -188,6 +239,22 @@ public class PlayerManager : MonoBehaviour
                 return;
             }
             SaveDataManager._inter.SetRankScore(m_TotalRankScore[i], i);
+        }
+    }
+
+    public void OnClickSpeedUp()
+    {
+        if ( TStaticV.m_GameStart == true&& isSpeedUp == false)
+        {
+            Time.timeScale = 1.7f;
+            isSpeedUp = true;
+            m_SpeedUpImg.color = Color.red;
+        }
+        else if (TStaticV.m_GameStart == true && isSpeedUp == true)
+        {
+            Time.timeScale = 1f;
+            isSpeedUp = false;
+            m_SpeedUpImg.color = Color.green;
         }
     }
 }

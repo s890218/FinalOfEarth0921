@@ -51,7 +51,7 @@ public class CreateManager : MonoBehaviour
         Vector3 pos = m_StartPos + m_NextPos;// * TStaticV.m_NowIndex;
         GameObject obj_clone = Instantiate(m_ArrayCloneObj[ran_index], pos, Quaternion.identity) as GameObject;
 
-        if (TStaticV.m_NowIndex % 15 == 0)
+        if (TStaticV.m_NowIndex % 8 == 0)
         {
             TStaticV.m_NowRockRank++;
         }

@@ -10,6 +10,8 @@ public class RockManager : MonoBehaviour
     void Start ()
     {
         m_RanSpeed = Random.Range(0.95f, 1.55f);
+        m_HP = 3 + Mathf.FloorToInt(TStaticV.m_TotalSpeed);
+        m_Rock_Score = 4 + TStaticV.m_NowIndex / 3;
     }
 	
 	void Update ()

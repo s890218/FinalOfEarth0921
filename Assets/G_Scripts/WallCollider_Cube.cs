@@ -8,7 +8,8 @@ public class WallCollider_Cube : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        m_Wall_HP = 5 + Mathf.FloorToInt(TStaticV.m_TotalSpeed);
+        m_Wall_Score = 5 + TStaticV.m_NowIndex / 3;
     }
 
     // Update is called once per frame
