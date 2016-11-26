@@ -4,27 +4,16 @@ using System.Collections;
 public class achievement : MonoBehaviour {
 
     public string name;
-    public enum Type { type_a, type_b, type_c };
+    public enum Type { type_a, type_b, type_c, type_d, type_e};
     public Type type;
     GameObject g;
 
     public Sprite sprite;
-	// Use this for initialization
+	
 	void Start ()
     {
         g = GameObject.Find("achimenu");
 	}
-
-    // Update is called once per frame
-    void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            print(gameObject.name);
-            transform.parent.parent.parent.parent.GetComponent<text>().title = name;
-            transform.parent.parent.parent.parent.GetComponent<text>().detail = type.ToString();
-        }*/
-    }
     
     public void onhit()
     {

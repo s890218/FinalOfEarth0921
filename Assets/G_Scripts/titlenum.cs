@@ -7,17 +7,12 @@ public class titlenum : MonoBehaviour {
     float a = 2;
     float b;
     public Text aa;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         StartCoroutine(notsofast());
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        //print(a);
-	}
     IEnumerator notsofast()
     {
         while (a > 1)
