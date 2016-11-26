@@ -16,7 +16,7 @@ public class cabinetcontroller : MonoBehaviour {
     void Start ()
     {
         _achi();
-        transform.position = new Vector3(50, 100, 0);
+        transform.position = new Vector3(50, 130, 0);
     }
     
 	void Update ()
