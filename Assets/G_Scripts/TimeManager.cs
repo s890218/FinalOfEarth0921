@@ -17,7 +17,7 @@ public class TimeManager : MonoBehaviour {
             return;
         }
 
-        TStaticV.m_TotalSpeed += Time.deltaTime * 0.015f;
+        TStaticV.m_TotalSpeed += Time.deltaTime * 0.02f;
 		float score = TStaticV.m_TotalSpeed * 10 + TStaticV.m_KillScore + TStaticV.m_NowIndex-11.0f;
         TStaticV.m_RealScore = score;
         m_ScoreText.text = score.ToString("0.0");
