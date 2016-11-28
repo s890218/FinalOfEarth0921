@@ -9,8 +9,8 @@ public class RockManager : MonoBehaviour
 
     void Start ()
     {
-        m_RanSpeed = Random.Range(0.95f, 1.55f);
-        m_HP = 3 + Mathf.FloorToInt(TStaticV.m_TotalSpeed);
+        m_RanSpeed = Random.Range(0.95f, 1.75f);
+        m_HP = 3 + Mathf.FloorToInt(TStaticV.m_TotalSpeed*2);
         m_Rock_Score = 4 + TStaticV.m_NowIndex / 3;
     }
 	
@@ -50,6 +50,7 @@ public class RockManager : MonoBehaviour
                 }
 
                 TStaticV.m_KillScore += m_Rock_Score;
+				TStaticV.m_KillCount++;
                 Destroy(gameObject);
             }
         }

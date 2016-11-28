@@ -62,14 +62,6 @@ public class PlayerManager : MonoBehaviour
         {
             m_isRight = false;
         }
-        if (Input.GetKeyDown(KeyCode.W)&&TStaticV.m_GameStart==true)
-        {
-            Time.timeScale = 1.7f;
-        }
-        if (Input.GetKeyUp(KeyCode.W) && TStaticV.m_GameStart == true)
-        {
-            Time.timeScale = 1f;
-        }
 #else
         if (Input.acceleration.x > 0.15f)
         {
@@ -257,4 +249,11 @@ public class PlayerManager : MonoBehaviour
             m_SpeedUpImg.color = Color.green;
         }
     }
+
+    public void OnClickGoToTitle ()
+	{
+		SceneManager.LoadScene("start");
+		Time.timeScale = 1;
+	}
+
 }

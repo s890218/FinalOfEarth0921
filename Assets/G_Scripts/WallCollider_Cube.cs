@@ -3,12 +3,12 @@ using System.Collections;
 
 public class WallCollider_Cube : MonoBehaviour
 {
-    int m_Wall_HP = 5;
+    int m_Wall_HP = 7;
     int m_Wall_Score = 5;
     // Use this for initialization
     void Start()
     {
-        m_Wall_HP = 5 + Mathf.FloorToInt(TStaticV.m_TotalSpeed);
+        m_Wall_HP = 7 + Mathf.FloorToInt(TStaticV.m_TotalSpeed*3);
         m_Wall_Score = 5 + TStaticV.m_NowIndex / 3;
     }
 
@@ -28,6 +28,7 @@ public class WallCollider_Cube : MonoBehaviour
             if (m_Wall_HP < 0)
             {
                 TStaticV.m_KillScore += m_Wall_Score;
+				TStaticV.m_KillCount++;
                 Destroy(gameObject);
             }
         }
